@@ -1,0 +1,129 @@
+:root{
+  font-size: 62.5%;
+/*light model*/
+  --bg-color-light: #FFFFFF;
+  --text-color-light: #323238;
+  --bg-primary-color-controls-light: #02799D;
+  --bg-controls-light: #E1E1E6;
+
+/*dark model*/
+  --bg-color-dark: #121214;
+  --text-color-dark: #FFFFFF;
+  --bg-primary-color-controls-dark: #0A3442;
+  --bg-controls-dark: #29292E;
+
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+
+body{
+  min-height: 100vh;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  display: grid;
+}
+
+header{
+  margin-top: 6rem;
+  margin-right: 6rem;
+  text-align: end;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19rem;
+}
+
+#timer{
+  text-align: center;
+}
+
+#time{
+  font-size: clamp(2rem, 2rem + 10vw, 12.6rem);
+  line-height: 10.3rem;
+
+  margin-bottom: 1.6rem;
+}
+
+#timer #buttons{
+  display: flex;
+  justify-content: space-between ;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#buttons button svg{
+  width: clamp(1rem, 1rem + 12vw, 6.4rem);
+  height: clamp(3.2rem, 2rem + 12vw, 6.4rem);
+}
+
+#controlsSound{
+  display: grid;
+  grid-template-areas: "A B" "C D";
+  gap: 3.2rem;
+}
+
+#controlsSound div:nth-child(1){
+  grid-area: A;
+}
+
+#controlsSound div:nth-child(2){
+  grid-area: B;
+}
+
+#controlsSound div:nth-child(3){
+  grid-area: C;
+}
+
+#controlsSound div:nth-child(4){
+  grid-area: D;
+}
+
+#controlsSound button{
+  background-color: var(--bg-controls-light);
+  border: none;
+  border-radius: 2.4rem;
+
+  padding: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+#controlsSound button input{
+  height: 1.6rem;
+  width: 9rem;
+}
+
+.hide{
+  display: none;
+}
+
+#controls{
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 5rem + 10vw, 10.8rem);
+
+  background: var(--bg-controls);
+  border-radius: 99rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
