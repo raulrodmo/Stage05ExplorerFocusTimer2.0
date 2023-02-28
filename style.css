@@ -5,14 +5,15 @@
   --text-color-light: #323238;
   --bg-primary-color-controls-light: #02799D;
   --bg-controls-light: #E1E1E6;
+  --bg-controls-light-hover: #0092be;
+
 
 /*dark model*/
   --bg-color-dark: #121214;
   --text-color-dark: #FFFFFF;
   --bg-primary-color-controls-dark: #0A3442;
   --bg-controls-dark: #29292E;
-
-
+  --bg-controls-dark-hover: #141416;
 }
 
 *{
@@ -25,7 +26,7 @@
 }
 
 body{
-  min-height: 100vh;
+  height: 70vh;
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
   display: grid;
@@ -35,6 +36,10 @@ header{
   margin-top: 6rem;
   margin-right: 6rem;
   text-align: end;
+}
+
+header button:hover svg path{
+  fill: var(--bg-controls-light-hover);
 }
 
 main{
@@ -126,4 +131,12 @@ button{
   align-items: center;
   justify-content: center;
   gap: 3.2rem;
+}
+
+#timer #buttons button:hover svg path{
+  fill: var(--bg-controls-light-hover);
+}
+
+#controlsSound button:hover{
+  background-color: var(--bg-controls-light-hover);
 }
