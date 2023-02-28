@@ -78,6 +78,11 @@ buttonStopTimer.addEventListener('click', function () {
   reset()
   buttonPlayTimer.classList.remove('hide')
   soundButtonPressAudio.play()
+  
+  soundFireplace.pause()
+  soundForest.pause()
+  soundRain.pause()
+  soundCooffeeShope.pause()
   return
 })
 
