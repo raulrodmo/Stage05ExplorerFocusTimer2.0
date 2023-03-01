@@ -26,7 +26,7 @@
 }
 
 body{
-  height: 70vh;
+  height: 80vh;
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
   display: grid;
@@ -51,6 +51,7 @@ main{
 
 #timer{
   text-align: center;
+  width: max-content;
 }
 
 #time{
@@ -114,6 +115,8 @@ button{
 #controlsSound button input{
   height: 1.6rem;
   width: 9rem;
+
+  transition: .2s;
 }
 
 .hide{
@@ -139,4 +142,35 @@ button{
 
 #controlsSound button:hover{
   background-color: var(--bg-controls-light-hover);
+}
+
+@media (max-width: 920px) {
+  
+  header{
+    margin-top: 3rem;
+    margin-right: 3rem;
+    text-align: end;
+  }
+
+  main{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #time{
+    margin-bottom: 0;
+  }
+
+  #timer button svg{
+    width: 3rem;
+    height: 3rem;
+  }
+
+  #controlsSound button{
+    padding: 1.2rem;
+  }
+
+  #controlsSound svg{
+    height: 4rem;
+  }
 }
