@@ -8,6 +8,17 @@ const buttonRain = document.querySelector('.soundRain')
 const buttonCoffeeShop = document.querySelector('.soundCoffeeShop')
 const buttonFireplace = document.querySelector('.soundFireplace')
 
+const soundTypeForest = document.querySelector('.soundTypeForest')
+const soundTypeRain = document.querySelector('.soundTypeRain')
+const soundTypeCoffeeShop = document.querySelector('.soundTypeCoffeeShop')
+const soundTypeFireplace = document.querySelector('.soundTypeFireplace')
+
+
+const controlVolumeForest = document.querySelector('.controlVolumeForest')
+const controlVolumeRain = document.querySelector('.controlVolumeRain')
+const controlVolumeCoffeeShop = document.querySelector('.controlVolumeCoffeeShop')
+const controlVolumeFireplace = document.querySelector('.controlVolumeFireplace')
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
@@ -21,10 +32,14 @@ const soundFireplace = new Audio("https://github.com/raulrodmo/Stage05ExplorerFo
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeout
 let newMinutes
+let newSeconds
 let isFinished
 
 buttonForest.addEventListener('click', function () {
-  soundButtonPressAudio.play()
+  soundTypeForest.style.backgroundColor = '#02799D';
+  soundTypeRain.style.backgroundColor = '#E1E1E6';
+  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
+  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
 
   soundForest.play()
   soundRain.pause()
@@ -35,7 +50,10 @@ buttonForest.addEventListener('click', function () {
 })
 
 buttonRain.addEventListener('click', function () {
-  soundButtonPressAudio.play()
+  soundTypeRain.style.backgroundColor = '#02799D';
+  soundTypeForest.style.backgroundColor = '#E1E1E6';
+  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
+  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
 
   soundRain.play()
   soundForest.pause()
@@ -46,7 +64,10 @@ buttonRain.addEventListener('click', function () {
 })
 
 buttonCoffeeShop.addEventListener('click', function () {
-  soundButtonPressAudio.play()
+  soundTypeCoffeeShop.style.backgroundColor = '#02799D';
+  soundTypeRain.style.backgroundColor = '#E1E1E6';
+  soundTypeForest.style.backgroundColor = '#E1E1E6';
+  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
 
   soundCooffeeShope.play()
   soundForest.pause()
@@ -57,7 +78,10 @@ buttonCoffeeShop.addEventListener('click', function () {
 })
 
 buttonFireplace.addEventListener('click', function () {
-  soundButtonPressAudio.play()
+  soundTypeFireplace.style.backgroundColor = '#02799D';
+  soundTypeRain.style.backgroundColor = '#E1E1E6';
+  soundTypeForest.style.backgroundColor = '#E1E1E6';
+  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
 
   soundFireplace.play()
   soundForest.pause()
@@ -66,6 +90,26 @@ buttonFireplace.addEventListener('click', function () {
 
   soundFireplace.loop = true
 })
+
+controlVolumeForest.addEventListener("input", function() {
+  const volume = this.value / 100;
+  soundForest.volume = volume;
+});
+
+controlVolumeRain.addEventListener("input", function() {
+  const volume = this.value / 100;
+  soundRain.volume = volume;
+});
+
+controlVolumeCoffeeShop.addEventListener("input", function() {
+  const volume = this.value / 100;
+  soundCooffeeShope.volume = volume;
+});
+
+controlVolumeFireplace.addEventListener("input", function() {
+  const volume = this.value / 100;
+  soundFireplace.volume = volume;
+});
 
 buttonPlayTimer.addEventListener('click', function () {
   countdown()
@@ -102,8 +146,15 @@ function addMinutes (){
 }
 
 function reduceMinutes (){
+  if(Number(minutesDisplay.textContent) > 5){
   newMinutes = Number(minutesDisplay.textContent) - 5
   minutesDisplay.textContent = String(newMinutes).padStart(2, "0")
+  } else{
+  newMinutes = 0
+  newSeconds = 0
+  minutesDisplay.textContent = String(newMinutes).padStart(2, "0")
+  secondsDisplay.textContent = String(newSeconds).padStart(2, "0")
+  }
 }
  
 function timerDisplay(newMinutes, seconds){
@@ -141,15 +192,3 @@ function countdown(){
     countdown()
   },1000)
 }
-
-
-
-
-
-
-
-
-
-
-
-
