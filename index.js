@@ -1,3 +1,7 @@
+const elementBody = document.querySelector('body')
+const buttonLightMode = document.querySelector('.lightMode')
+const buttonDarkMode = document.querySelector('.darkMode')
+
 const buttonPlayTimer = document.querySelector('.play')
 const buttonStopTimer = document.querySelector('.stop')
 const buttonAddMinutes = document.querySelector('.addMinutes')
@@ -8,11 +12,12 @@ const buttonRain = document.querySelector('.soundRain')
 const buttonCoffeeShop = document.querySelector('.soundCoffeeShop')
 const buttonFireplace = document.querySelector('.soundFireplace')
 
-const soundTypeForest = document.querySelector('.soundTypeForest')
-const soundTypeRain = document.querySelector('.soundTypeRain')
-const soundTypeCoffeeShop = document.querySelector('.soundTypeCoffeeShop')
-const soundTypeFireplace = document.querySelector('.soundTypeFireplace')
+const soundType = document.querySelector('.soundType')
 
+const soundTypeForest = document.querySelector('#soundTypeForest')
+const soundTypeRain = document.querySelector('#soundTypeRain')
+const soundTypeCoffeeShop = document.querySelector('#soundTypeCoffeeShop')
+const soundTypeFireplace = document.querySelector('#soundTypeFireplace')
 
 const controlVolumeForest = document.querySelector('.controlVolumeForest')
 const controlVolumeRain = document.querySelector('.controlVolumeRain')
@@ -35,11 +40,41 @@ let newMinutes
 let newSeconds
 let isFinished
 
+buttonLightMode.addEventListener('click', function (){
+  buttonLightMode.classList.add('hide')
+  buttonDarkMode.classList.remove('hide')
+  elementBody.classList.add('dark')
+  soundTypeForest.classList.add('dark')
+  soundTypeRain.classList.add('dark')
+  soundTypeCoffeeShop.classList.add('dark')
+  soundTypeFireplace.classList.add('dark')
+
+  buttonPlayTimer.classList.add('dark')
+  buttonStopTimer.classList.add('dark')
+  buttonAddMinutes.classList.add('dark')
+  buttonReduceMinutes.classList.add('dark')
+})
+
+buttonDarkMode.addEventListener('click', function (){
+  buttonLightMode.classList.remove('hide')
+  buttonDarkMode.classList.add('hide')
+  elementBody.classList.remove('dark')
+  soundTypeForest.classList.remove('dark')
+  soundTypeRain.classList.remove('dark')
+  soundTypeCoffeeShop.classList.remove('dark')
+  soundTypeFireplace.classList.remove('dark')
+
+  buttonPlayTimer.classList.remove('dark')
+  buttonStopTimer.classList.remove('dark')
+  buttonAddMinutes.classList.remove('dark')
+  buttonReduceMinutes.classList.remove('dark')
+})
+
 buttonForest.addEventListener('click', function () {
-  soundTypeForest.style.backgroundColor = '#02799D';
-  soundTypeRain.style.backgroundColor = '#E1E1E6';
-  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
-  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
+  soundTypeForest.classList.add('selected');
+  soundTypeRain.classList.remove('selected');
+  soundTypeCoffeeShop.classList.remove('selected');
+  soundTypeFireplace.classList.remove('selected');
 
   soundForest.play()
   soundRain.pause()
@@ -50,10 +85,10 @@ buttonForest.addEventListener('click', function () {
 })
 
 buttonRain.addEventListener('click', function () {
-  soundTypeRain.style.backgroundColor = '#02799D';
-  soundTypeForest.style.backgroundColor = '#E1E1E6';
-  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
-  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
+  soundTypeRain.classList.add('selected');
+  soundTypeForest.classList.remove('selected');
+  soundTypeCoffeeShop.classList.remove('selected');
+  soundTypeFireplace.classList.remove('selected');
 
   soundRain.play()
   soundForest.pause()
@@ -64,10 +99,10 @@ buttonRain.addEventListener('click', function () {
 })
 
 buttonCoffeeShop.addEventListener('click', function () {
-  soundTypeCoffeeShop.style.backgroundColor = '#02799D';
-  soundTypeRain.style.backgroundColor = '#E1E1E6';
-  soundTypeForest.style.backgroundColor = '#E1E1E6';
-  soundTypeFireplace.style.backgroundColor = '#E1E1E6';
+  soundTypeCoffeeShop.classList.add('selected');
+  soundTypeForest.classList.remove('selected');
+  soundTypeRain.classList.remove('selected');
+  soundTypeFireplace.classList.remove('selected');
 
   soundCooffeeShope.play()
   soundForest.pause()
@@ -78,10 +113,10 @@ buttonCoffeeShop.addEventListener('click', function () {
 })
 
 buttonFireplace.addEventListener('click', function () {
-  soundTypeFireplace.style.backgroundColor = '#02799D';
-  soundTypeRain.style.backgroundColor = '#E1E1E6';
-  soundTypeForest.style.backgroundColor = '#E1E1E6';
-  soundTypeCoffeeShop.style.backgroundColor = '#E1E1E6';
+  soundTypeFireplace.classList.add('selected');
+  soundTypeForest.classList.remove('selected');
+  soundTypeRain.classList.remove('selected');
+  soundTypeCoffeeShop.classList.remove('selected');
 
   soundFireplace.play()
   soundForest.pause()
@@ -122,6 +157,10 @@ buttonStopTimer.addEventListener('click', function () {
   reset()
   buttonPlayTimer.classList.remove('hide')
   soundButtonPressAudio.play()
+  soundTypeForest.classList.remove('selected');
+  soundTypeRain.classList.remove('selected');
+  soundTypeCoffeeShop.classList.remove('selected');
+  soundTypeFireplace.classList.remove('selected');
   
   soundFireplace.pause()
   soundForest.pause()
