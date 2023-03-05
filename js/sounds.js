@@ -47,6 +47,13 @@ export default function(){
     cooffeeShopeAudio.pause()
   }
 
+  function stopSound(){
+    fireplaceAudio.pause()
+    forestAudio.pause()
+    rainAudio.pause()
+    cooffeeShopeAudio.pause()
+  }
+
   return{
     pressButton,
     KitchenTimer,
@@ -54,7 +61,7 @@ export default function(){
     rain,
     cooffeeShope,
     fireplace,
-
+    stopSound,
     forestAudio,
     rainAudio,
     cooffeeShopeAudio,
