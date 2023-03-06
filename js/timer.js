@@ -4,6 +4,7 @@ import {
 } from "./elements.js"
 
 import Sounds from "./sounds.js"
+import Controls from "./controls.js"
 
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeout
@@ -11,6 +12,7 @@ let newMinutes
 let newSeconds
 
 const sound = Sounds()
+const controls = Controls()
 
 export default function(){
   function addMinutes (){
@@ -52,6 +54,7 @@ export default function(){
       if(isFinished) {
         timerDisplay(minutes, 0)
         sound.KitchenTimer()
+        controls.stop()
         return
       }
 
